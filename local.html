@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>YULO STORE</title>
+    <style>
+       
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    background-color: #e8f4f8; 
+    color: #333;
+    line-height: 1.6;
+}
+main {
+    flex: 1; 
+}
+        
+        header {
+            background-color: #00796b; 
+            color: #fff;
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #009688; 
+            color: #fff;
+        }
+
+       
+        .hero {
+    margin-top: 80px;
+    background: url('image/IMG-20241128-WA0004.jpg') no-repeat center center/cover;
+    color: #f8f9fa; 
+    padding: 4rem 2rem;
+    text-align: center;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Georgia', serif; 
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color:#e8f4f8; 
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+}
+
+.hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 1rem auto;
+    color: #ffffff; 
+    font-family: 'Arial', sans-serif; 
+}
+
+
+        
+        .products {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .products h2 {
+            font-size: 2rem;
+            color: #00796b; 
+            margin-bottom: 1.5rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background-color: #ffffff; 
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .product-card-content {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            color: #00796b; 
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .product-card .features {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 0.5rem 0;
+        }
+
+        .product-card .cta {
+            font-size: 1.1rem;
+            color: #d32f2f; 
+            margin-top: 1rem;
+        }
+
+     
+
+        footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative; 
+    bottom: 0;
+    width: 100%;
+    font-size: 1rem;
+}
+
+
+footer {
+    background-color: #333; 
+    color: white; 
+    text-align: center; 
+    padding: 20px; 
+    position: relative; 
+    width: 100%; 
+    font-size: 1rem;
+}
+
+footer .contact-info {
+    margin-bottom: 15px; 
+}
+
+footer .contact-info a {
+    color: #007bff; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: color 0.3s ease; 
+}
+
+footer .contact-info a:hover {
+    color: #28a745; 
+}
+
+footer .social-media {
+    margin-top: 20px;
+}
+
+footer .social-media ul {
+    list-style-type: none; 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    padding: 0;
+    margin: 0;
+}
+
+footer .social-media ul li {
+    display: inline-block; 
+}
+
+footer .social-media ul li a {
+    color: white; 
+    text-decoration: none; 
+    font-size: 1.2rem; 
+    font-weight: 600; 
+    transition: color 0.3s ease, transform 0.3s ease; 
+}
+
+footer .social-media ul li a:hover {
+    color: #28a745; 
+    transform: scale(1.1); 
+}
+
+footer p {
+    margin: 10px 0; 
+    font-size: 0.9rem; 
+}
+#profile-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #00796b;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    z-index: 1001;
+}
+
+#profile-card .profile-content img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+    margin-bottom: 1rem; 
+    object-fit: cover; 
+}
+
+
+#profile-card button {
+    background-color: #00796b;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+#profile-card button:hover {
+    background-color: #005b4b;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    
+    <header>
+        <h1>YULO LIQUOR STORE</h1>
+        <nav>
+            <a href="#" class="nav-link" data-category="home">Home</a>
+            <a href="#" class="nav-link" data-category="whiskey">Whiskey</a>
+            <a href="#" class="nav-link" data-category="wine">Wine</a>
+            <a href="#" class="nav-link" data-category="non-alcoholic">Non-Alcohol</a>
+            <a href="#" class="nav-link" data-category="cannet">Cannet</a>
+            <a href="#" class="nav-link" data-category="profile">profile</a>
+        </nav>
+    </header>
+
+    
+    <section class="hero">
+        <h2>Welcome to YULO Liquor Store</h2>
+        <p>Discover a world of premium spirits, exceptional wines, and craft beverages. Whether you're looking for classics or rare finds, we have something to elevate every occasion.</p>
+    </section>
+    
+    
+    <section class="products">
+        <h2>Our Products</h2>
+        <div class="product-grid">
+            
+            <div class="product-card" data-category="whiskey">
+                <img src="image/CGI Product Visualization - JACK DANIEL'S HONEY.jpg" alt="Whiskey 1">
+                <div class="product-card-content">
+                    <h3>Premium Whiskey</h3>
+                    <p>Aged to perfection.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="whiskey">
+                <img src="image/20dce29d-395a-468a-9eeb-3d6c373a9610.jpg" alt="Whiskey 2">
+                <div class="product-card-content">
+                    <h3>Exclusive Whiskey</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="whiskey">
+                <img src="image/Four Bottles to Keep in Your Bar.jpg" alt="Whiskey 2">
+                <div class="product-card-content">
+                    <h3>Exclusive Whiskey</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="whiskey">
+                <img src="image/Need To Know.jpg" alt="Whiskey 2">
+                <div class="product-card-content">
+                    <h3>Exclusive Whiskey</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="whiskey">
+                <img src="image/IMG-20241128-WA0003.jpg" alt="Whiskey 2">
+                <div class="product-card-content">
+                    <h3>Exclusive Whiskey</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="whiskey">
+                <img src="image/IMG-20241128-WA0004.jpg" alt="Whiskey 2">
+                <div class="product-card-content">
+                    <h3>Exclusive Whiskey</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="whiskey">
+                <img src="image/IMG-20241128-WA0005.jpg" alt="Whiskey 2">
+                <div class="product-card-content">
+                    <h3>Exclusive Whiskey</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="whiskey">
+                <img src="image/IMG-20241128-WA0006.jpg" alt="Whiskey 2">
+                <div class="product-card-content">
+                    <h3>Exclusive Whiskey</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+         
+            
+            <div class="product-card" data-category="wine">
+                <img src="image/IMG-20241128-WA0007.jpg" alt="Wine 1">
+                <div class="product-card-content">
+                    <h3>Red Wine</h3>
+                    <p>Perfect for every occasion.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="wine">
+                <img src="image/IMG-20241128-WA0011.jpg" alt="Wine 2">
+                <div class="product-card-content">
+                    <h3>White Wine</h3>
+                    <p>Crisp and refreshing.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="wine">
+                <img src="image/99 Stunning Wine Bottle Label Design For Inspiration.jpg" alt="Wine 3">
+                <div class="product-card-content">
+                    <h3>White Wine</h3>
+                    <p>Crisp and refreshing.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="wine">
+                <img src="image/Apogeu (1).jpg" alt="Wine 3">
+                <div class="product-card-content">
+                    <h3>White Wine</h3>
+                    <p>Crisp and refreshing.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="wine">
+                <img src="image/creative die cut  packaging design.jpg" alt="Wine 3">
+                <div class="product-card-content">
+                    <h3>White Wine</h3>
+                    <p>Crisp and refreshing.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="wine">
+                <img src="image/🍷Stop The Flow_ Keep Your Wine Fresh & Tasty with This Adorable Stopper! 🍾.jpg" alt="Wine 3">
+                <div class="product-card-content">
+                    <h3>White Wine</h3>
+                    <p>Crisp and refreshing.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="wine">
+                <img src="image/Ezimit Winery.jpg" alt="Wine 3">
+                <div class="product-card-content">
+                    <h3>White Wine</h3>
+                    <p>Crisp and refreshing.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="wine">
+                <img src="image/Vino Rioja.jpg" alt="Wine 3">
+                <div class="product-card-content">
+                    <h3>White Wine</h3>
+                    <p>Crisp and refreshing.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="non-alcoholic">
+                <img src="img/20090317 - Not Like At Home.jpg" alt="Non-Alcoholic Product">
+                <div class="product-card-content">
+                    <h3>Non-Alcoholic Beverage</h3>
+                    <p>Refreshing and healthy.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="non-alcoholic">
+                <img src="img/Alerte Nouveau Rappel _ Coca-Cola & Fanta Zéro en France!.jpg" alt="Non-Alcoholic Product">
+                <div class="product-card-content">
+                    <h3>Non-Alcoholic Beverage</h3>
+                    <p>Refreshing and healthy.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="non-alcoholic">
+                <img src="img/Creative Juice Packaging Design for Inspiration-DesignerPeople.jpg" alt="Non-Alcoholic Product">
+                <div class="product-card-content">
+                    <h3>Non-Alcoholic Beverage</h3>
+                    <p>Refreshing and healthy.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="non-alcoholic">
+                <img src="img/Fanta in a glass bottle_ It tastes better than in….jpg" alt="Non-Alcoholic Product">
+                <div class="product-card-content">
+                    <h3>Non-Alcoholic Beverage</h3>
+                    <p>Refreshing and healthy.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="non-alcoholic">
+                <img src="img/Fanta's Clever New Bottle Looks Fresh Squeezed, and Was Brutal to Design.jpg" alt="Non-Alcoholic Product">
+                <div class="product-card-content">
+                    <h3>Non-Alcoholic Beverage</h3>
+                    <p>Refreshing and healthy.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="non-alcoholic">
+                <img src="img/MOSCOW, RUSSIA-APRIL 4, 2014_ Can Of Coca Cola Company Soft Drink Fanta Orange On Ice_ Fanta Is A Gl.jpg" alt="Non-Alcoholic Product">
+                <div class="product-card-content">
+                    <h3>Non-Alcoholic Beverage</h3>
+                    <p>Refreshing and healthy.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="non-alcoholic">
+                <img src="img/Drink and Liquid Photography _ Commercial Drink Photographers.jpg" alt="Non-Alcoholic Product">
+                <div class="product-card-content">
+                    <h3>Non-Alcoholic Beverage</h3>
+                    <p>Refreshing and healthy.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="non-alcoholic">
+                <img src="img/Healthy Roots Juice.jpg" alt="Non-Alcoholic Product">
+                <div class="product-card-content">
+                    <h3>Non-Alcoholic Beverage</h3>
+                    <p>Refreshing and healthy.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="cannet">
+                <img src="im/5f672910-eed1-48ed-ab58-ac7d775ce565.jpg" alt="cannet 1">
+                <div class="product-card-content">
+                    <h3>Exclusive cannet</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="cannet">
+                <img src="im/Amstel.jpg" alt="cannet 1">
+                <div class="product-card-content">
+                    <h3>Exclusive cannet</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="cannet">
+                <img src="im/Beer Can Design Mashups_ Six-Pack Picasso’s You’ll Wish Were the Real Deal.jpg" alt="cannet 1">
+                <div class="product-card-content">
+                    <h3>Exclusive cannet</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="cannet">
+                <img src="im/Coors Banquet Logo Illustrated by Steven Noble.jpg" alt="cannet 1">
+                <div class="product-card-content">
+                    <h3>Exclusive cannet</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="cannet">
+                <img src="im/df7b9f7f-90fd-4fbf-8b4e-bece81392ce9.jpg" alt="cannet 1">
+                <div class="product-card-content">
+                    <h3>Exclusive cannet</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="cannet">
+                <img src="im/ed9094fa-be92-4064-b7f3-958f3ea410b6.jpg" alt="cannet 1">
+                <div class="product-card-content">
+                    <h3>Exclusive cannet</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="cannet">
+                <img src="im/I will design unique can labels for energy drinks, soda, beer for your brand.jpg" alt="cannet 1">
+                <div class="product-card-content">
+                    <h3>Exclusive cannet</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div class="product-card" data-category="cannet">
+                <img src="im/Still Life Fotografia Fotografo Still Life Prodotti per eCommerce.jpg" alt="cannet 1">
+                <div class="product-card-content">
+                    <h3>Exclusive cannet</h3>
+                    <p>Smooth and rich.</p>
+                </div>
+            </div>
+            <div id="profile-card" style="display: none;">
+                <div class="profile-content">
+                    <img src="image/IMG-20241128-WA0010.jpg" alt="Profile Picture" style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 1rem;">
+                    <h2>Your Profile</h2>
+                    <p>Name: CEO Irasubiza Christian</p>
+                    <p>Email: irasubizachristian3@gmail.com</p>
+                    <p>Phone:0784930657</p>
+                    <p>Location:Karenge-Rwamagana</p>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <button id="close-profile">Close</button>
+                </div>
+            </div>
+            
+        </div>
+      
+        
+
+    
+      
+    
+
+    <footer>
+        <div class="contact-info">
+            <p>Contact Us:</p>
+            <p>Phone: <a href="tel:0784930657">0784930657</a></p>
+            <p>Email: <a href="mailto:irasubizachristian3@gmail.com">irasubizachristian3@gmail.com</a></p>
+        </div>
+        <div class="social-media">
+            <p>Follow me on:</p>
+            <ul>
+                <li><a href="https://www.facebook.com/Irasubiza Christian" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/iam_f.a.mous" target="_blank" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/@Famous-e5h" target="_blank" class="youtube"><i class="fa fa-youtube"></i></a></li>
+            </ul>
+            
+        </div>
+        <p>&copy; 2024 YULO LIQUAR STORE</p>
+    </footer>
+<script>
+ 
+document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelectorAll(".nav-link");
+    const heroSection = document.querySelector(".hero");
+    const productsSection = document.querySelector(".products");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", event => {
+            event.preventDefault(); 
+            const category = event.target.getAttribute("data-category");
+
+            console.log('Category clicked:', category); 
+
+            if (category === "home") {
+                
+                heroSection.style.display = "block";
+                productsSection.style.display = "none";
+            } else {
+                
+                heroSection.style.display = "none";
+                productsSection.style.display = "block";
+
+                const productCards = document.querySelectorAll(".product-card");
+                productCards.forEach(card => {
+                    if (card.getAttribute("data-category") === category || category === "home") {
+                        card.style.display = "block"; 
+                    } else {
+                        card.style.display = "none"; 
+                    }
+                });
+            }
+        });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const profileLink = document.querySelector('a[data-category="profile"]');
+    const profileCard = document.getElementById("profile-card");
+    const closeProfileBtn = document.getElementById("close-profile");
+
+    profileLink.addEventListener("click", (event) => {
+        event.preventDefault();
+        profileCard.style.display = "block"; 
+    });
+
+    closeProfileBtn.addEventListener("click", () => {
+        profileCard.style.display = "none"; 
+    });
+
+    
+    window.addEventListener("click", (event) => {
+        if (event.target === profileCard) {
+            profileCard.style.display = "none";
+        }
+    });
+});
+
+
+document.querySelector('[data-category="profile"]').addEventListener('click', () => {
+    document.getElementById('profile-card').style.display = 'block';
+});
+
+document.getElementById('close-profile').addEventListener('click', () => {
+    document.getElementById('profile-card').style.display = 'none';
+});
+
+
+</script>
+</body>
+</html>
